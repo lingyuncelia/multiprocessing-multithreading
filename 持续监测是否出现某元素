@@ -4,16 +4,11 @@ import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC 
 from selenium.webdriver.common.by import By
+
 def wait_for_you(myDynamicElement,delay):
-    time.sleep(delay)    
-    try:
-    #查看10秒内是否出现该元素，如果元素10秒内出现就返回，否则抛出异常。
-        element=WebDriverWait(driver,100).until(
-            EC.presence_of_element_located((By.XPATH,myDynamicElement))
-        )
-    finally:        
+    time.sleep(delay)
+    if(EC.presence_of_element_located((By.XPATH,myDynamicElement))):
         driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[1]/div/ul/li[1]/div/ul/li/div/div[1]/a").click()
-        print("you are wonderful")
 
 def print_sth(a,b):
     time.sleep(b)
@@ -29,4 +24,5 @@ from selenium import webdriver
 driver=webdriver.Chrome('K:/zhusc/chromedriver.exe')
 url="https://cn.bing.com/"
 driver.get(url)
-# wait_for_you("//div[text()='最新']",10)
+myDynamicElement="//div[text()='最新']"
+wait_for_you(myDynamicElement,5)

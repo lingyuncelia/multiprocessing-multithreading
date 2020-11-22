@@ -1,0 +1,30 @@
+import _thread
+import time
+def print_time(threadName,delay,iterations):
+    start=int(time.time())
+    for i in range(0,iterations):
+        time.sleep(delay)
+        second_elapsed=str(int(time.time())-start)
+        print("{} {}".format(second_elapsed,threadName))
+try:
+    _thread.start_new_thread(print_time,('Fizz',2,3))
+    _thread.start_new_thread(print_time,('Buzz',3,4))
+    _thread.start_new_thread(print_time,('Counter',1,2))
+except:
+    print('Error:unable to start thread')
+
+while 1:
+    pass
+    
+"""    
+运行结果：
+1 Counter
+2 Fizz
+2 Counter
+3 Buzz
+4 Fizz
+6 Buzz
+6 Fizz
+9 Buzz
+12 Buzz
+"""

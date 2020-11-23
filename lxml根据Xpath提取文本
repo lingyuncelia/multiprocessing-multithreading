@@ -1,0 +1,8 @@
+import time
+from lxml import etree
+import requests
+url="http://www.youdao.com/w/handsome/#keyfrom=dict2.top"
+data = requests.get(url).text 
+s=etree.HTML(data)
+x='//*[@id="phrsListTab"]/div[2]/ul/li'
+print(s.xpath('//*[@id="phrsListTab"]/div[2]/ul/li/text()'))

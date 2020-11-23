@@ -1,0 +1,55 @@
+import _thread
+import time
+
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC 
+from selenium.webdriver.common.by import By
+
+# def wait_for_you(myDynamicElement,delay):
+#     time.sleep(delay)
+#     if(EC.presence_of_element_located((By.XPATH,myDynamicElement))):
+#         driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[1]/div/ul/li[1]/div/ul/li/div/div[1]/a").click()
+
+# def wait_for_you(myDynamicElement,delay):
+#     time.sleep(delay)
+#     res=EC.presence_of_element_located((By.XPATH,myDynamicElement))    
+#     if res is True:
+#         print("ok")
+#     else:
+#         print("not ok")
+
+# def wait_for_you(myDynamicElement,delay):
+#         time.sleep(delay)
+#         # 判断页面元素id属性值为“query”的页面元素是否存在
+#         res = isElementPresent("xpath", myDynamicElement)
+#         if res is True:
+#             print("所查找的元素存在于页面上！")
+#         else:
+#             print("页面中未找到所需要的页面元素！")
+
+def print_sth(a,b):
+    time.sleep(b)
+    print(a)
+
+def is_element_exist(myDynamicElement,delay):
+    time.sleep(delay)
+    list = driver.find_elements_by_xpath(myDynamicElement)
+    if len(list) == 0:
+        print('没有该元素')
+        return 0
+    elif len(list) >0:
+        print("找到元素的个数是："+str(len(list)))                
+        driver.find_elements_by_xpath(myDynamicElement).click()
+        return 1
+
+try:
+    _thread.start_new_thread(is_element_exist,("//div[text()='最新']",10))
+    _thread.start_new_thread(print_sth,("hello world",1))    
+except:
+    print('Error:unable to start thread')
+
+from selenium import webdriver
+driver=webdriver.Chrome('d:/zhusc/chromedriver.exe')
+url="https://cn.bing.com/"
+driver.get(url)
+driver.maximize_window()

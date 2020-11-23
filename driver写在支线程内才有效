@@ -32,6 +32,14 @@ def print_sth(a,b):
     print(a)
 
 def is_element_exist(myDynamicElement,delay):
+"""
+没有这段会失效
+from selenium import webdriver
+driver=webdriver.Chrome('d:/zhusc/chromedriver.exe')
+url="https://cn.bing.com/"
+driver.get(url)
+driver.maximize_window()
+"""
     time.sleep(delay)
     list = driver.find_elements_by_xpath(myDynamicElement)
     if len(list) == 0:
@@ -48,8 +56,5 @@ try:
 except:
     print('Error:unable to start thread')
 
-from selenium import webdriver
-driver=webdriver.Chrome('d:/zhusc/chromedriver.exe')
-url="https://cn.bing.com/"
-driver.get(url)
-driver.maximize_window()
+while 1:
+    pass

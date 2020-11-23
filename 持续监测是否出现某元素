@@ -12,4 +12,12 @@ def is_element_exist(myDynamicElement):
     elif len(list) >0:        
         print("找到元素的个数是："+str(len(list)))
         return 1
+
+# def is_element_exist(myDynamicElement):
+#     try:
+#         driver.find_element_by_xpath(myDynamicElement)
+#     except:
+#         print("game over")
+#         return 0
+
 res = is_element_exist('//*[@id="scpl2"]')

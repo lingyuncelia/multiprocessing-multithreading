@@ -1,0 +1,24 @@
+import time
+from lxml import etree
+import requests
+def open_url(path):
+    url="http://www.youdao.com/w/{}/#keyfrom=dict2.top".format(path)    
+    res = requests.get(url)
+    time.sleep(1)
+    r=res.text
+    selector = etree.HTML(r)
+    x='//*[@id="phrsListTab"]/div[2]/ul/li[1]/text()'
+    a=selector.xpath(x)
+    print(a)
+open_url('hand')
+open_url('some')
+open_url('handsome')
+open_url('beautiful')
+
+"""
+运行结果：
+['n. 手，手艺；帮助；指针；插手']
+[]
+['adj. （男子）英俊的；可观的；大方的，慷慨的；健美而端庄的']
+[]
+"""

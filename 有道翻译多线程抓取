@@ -1,0 +1,23 @@
+import time
+from lxml import etree
+import requests
+import _thread
+def open_url(path,delay):
+    url="http://www.youdao.com/w/{}/#keyfrom=dict2.top".format(path)    
+    res = requests.get(url)
+    time.sleep(delay)
+    r=res.text
+    selector = etree.HTML(r)
+    x="(//div[@class='trans-container']//li)[1]/text()"
+    a=selector.xpath(x)
+    print(a)
+try:
+    _thread.start_new_thread(open_url,('handsome',1))
+    _thread.start_new_thread(open_url,('hand',1))
+    _thread.start_new_thread(open_url,('some',1))
+    _thread.start_new_thread(open_url,('beautiful',1))
+    _thread.start_new_thread(open_url,('Celia',1))
+except:
+    print('Error:unable to start thread')
+while 1:
+    pass

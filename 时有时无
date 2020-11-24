@@ -21,4 +21,6 @@ open_url('beautiful')
 []
 ['adj. （男子）英俊的；可观的；大方的，慷慨的；健美而端庄的']
 []
+输出结果不稳定，有时可以全部成功输出，但将xpath改了就可以稳定地成功地输出。
+x="(//div[@class='trans-container']//li)[1]/text()" 
 """

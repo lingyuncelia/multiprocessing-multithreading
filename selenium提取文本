@@ -1,0 +1,10 @@
+from selenium import webdriver
+driver=webdriver.Chrome('K:/zhusc/chromedriver.exe')
+def test(path):
+    url="http://www.youdao.com/w/{}/#keyfrom=dict2.top".format(path)
+    driver.get(url)
+    x='//*[@id="phrsListTab"]/div[2]/ul/li'
+    a=driver.find_element_by_xpath(x).text
+    print(a)
+    driver.close()
+test('some')

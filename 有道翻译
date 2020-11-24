@@ -1,0 +1,13 @@
+import time
+from lxml import etree
+import requests
+def open_url(path):
+    url="http://www.youdao.com/w/{}/#keyfrom=dict2.top".format(path)    
+    res = requests.get(url)
+    time.sleep(1)
+    # x="//li[text()='n. 西莉亚（女子名）']/text()"              #成功输出：['n. 西莉亚（女子名）']
+    # x="//div[@id='phrsListTab']/div[2]/ul[1]/li[1]/text()"   #无法成功输出    
+    x="(//div[@class='trans-container']//li)[1]/text()"        #成功输出：['n. 西莉亚（女子名）']
+    result = etree.HTML(res.text).xpath(x)
+    print(result)
+open_url('Celia')

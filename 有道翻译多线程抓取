@@ -12,11 +12,11 @@ def open_url(path,delay):
     a=selector.xpath(x)
     print(a)
 try:
-    _thread.start_new_thread(open_url,('handsome',1))
-    _thread.start_new_thread(open_url,('hand',1))
-    _thread.start_new_thread(open_url,('some',1))
-    _thread.start_new_thread(open_url,('beautiful',1))
-    _thread.start_new_thread(open_url,('Celia',1))
+    _thread.start_new_thread(open_url,('handsome',))
+    _thread.start_new_thread(open_url,('hand',))
+    _thread.start_new_thread(open_url,('some',))
+    _thread.start_new_thread(open_url,('beautiful',))
+    _thread.start_new_thread(open_url,('Celia',))
 except:
     print('Error:unable to start thread')
 while 1:
